@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class work4 {
+    public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+                System.out.println("第4题：计算器");
+		System.out.println("请输入第一个数：");
+		float a = input.nextFloat();
+		System.out.println("请输入第二个数：");
+		float b = input.nextFloat();
+		System.out.println("请输入运算符：（1代表加，2代表减，3代表乘，4代表除）");
+		int c = input.nextInt();
+		while (c != 1 && c != 2 && c != 3 && c != 4) {
+			System.out.println("输入错误，请重新输入运算符：（1代表加，2代表减，3代表乘，4代表除）");
+			c = input.nextInt();
+		}
+		switch (c) {
+		case 1:
+			System.out.println(a + "+" + b + "=" + (a + b));
+			break;
+		case 2:
+			System.out.println(a + "-" + b + "=" + (a - b));
+			break;
+		case 3:
+			System.out.println(a + "*" + b + "=" + (a * b));
+			break;
+		case 4:
+			System.out.println(a + "/" + b + "=" + (a / b));
+			break;
+		}
+	}
+}
