@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class workOthers2 {
+    public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("请输入三个整数");
+		System.out.print("请输入第一个整数（不能小于零或大于24）：");
+		int a = input.nextInt();
+		while (a < 0 || a >= 24) {
+			System.out.println("输入错误，请重新输入第一个整数（不能小于零或大于24）：");
+			a = input.nextInt();
+		}
+		System.out.print("请输入第二个整数（不能小于零或大于60）：");
+		int b = input.nextInt();
+		while (b < 0 || b >= 60) {
+			System.out.println("输入错误，请重新输入第二个整数（不能小于零或大于60）：");
+			b = input.nextInt();
+		}
+		System.out.print("请输入第三个整数（不能小于零或大于60）：");
+		int c = input.nextInt();
+		while (c < 0 || c >= 60) {
+			System.out.println("输入错误，请重新输入第三个整数（不能小于零或大于60）：");
+			c = input.nextInt();
+		}
+		System.out.println("表示的时间是：" + a + "点" + b + "分" + c + "秒");
+
+		c = c + 1;
+		if (c >= 60) {
+			c = 00;
+			b = b + 1;
+		}
+		if (b >= 60) {
+			b = 00;
+			a = a + 1;
+		}
+		if (a >= 24) {
+			a = 00;
+			System.out.println("下一秒是第二天:" + a + "点" + b + "分" + c + "秒");
+		} else
+			System.out.println("下一秒的时间是:" + a + "点" + b + "分" + c + "秒");
+	}
+}
