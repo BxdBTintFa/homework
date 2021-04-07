@@ -4,6 +4,7 @@ public class work4 {
     public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
                 System.out.println("第4题：计算器");
+                L:while(true){
 		System.out.println("请输入第一个数：");
 		float a = input.nextFloat();
 		System.out.println("请输入第二个数：");
@@ -28,5 +29,7 @@ public class work4 {
 			System.out.println(a + "/" + b + "=" + (a / b));
 			break;
 		}
+        continue L;
+        }
 	}
 }
