@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class work6 {
+
+    public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("第6题：输出菱形");
+		System.out.println("请输入菱形对角线中'*'的个数：(必须是大于零的奇数)");
+		int a = in.nextInt();
+		while (a % 2 == 0 || a <= 0) {
+			System.out.println("输入的不是奇数或小于零，请重新输入：");
+			a = in.nextInt();
+		}
+		for (int i = 1; i < (a + 3) / 2; i++) {
+			int s = 0;
+			int t = 0;
+			while (s < ((a + 1) / 2 - i)) {
+				System.out.print(" ");
+				s++;
+			}
+			while (t < (2 * i - 1)) {
+				System.out.print("*");
+				t++;
+			}
+			System.out.println();
+		}
+		for (int i = 1; i <= (a - 1) / 2; i++) {
+			int s = 0;
+			int t = a - 2 * i;
+			while (s < i) {
+				System.out.print(" ");
+				s++;
+			}
+			while (t > 0) {
+				System.out.print("*");
+				t--;
+			}
+			System.out.println();
+		}
+
+	}
+}
