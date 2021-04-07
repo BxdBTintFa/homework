@@ -1,0 +1,11 @@
+public class work3 {
+    public static void main(String[] args) {
+		int a = 3;
+		int b = 5;
+		System.out.println("原先两数为a:" + a + " b:" + b);
+		a = a + b;
+		b = a - b;
+		a = a - b;
+		System.out.println("互换后两数为a:" + a + " b:" + b);
+	}
+}
