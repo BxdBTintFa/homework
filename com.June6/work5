@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class work5 {
+    public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("第5题：三个数按从大到小的顺序输出");
+		System.out.println("请输入三个整数：");
+		int a = in.nextInt();
+		int b = in.nextInt();
+		int c = in.nextInt();
+		/*
+		 * if(a>=b){ if(a>=c){ if(b>=c){ System.out.println("从大到小的顺序是："+a+b+c);
+		 * }else if(c>=a){ System.out.println("从大到小的顺序是："+c+a+b); } else
+		 * System.out.println("从大到小的顺序是："+a+c+b); }else if(b>=c){ if(a>=c){
+		 * System.out.println("从大到小的顺序是："+b+a+c); }else if(c>=b){
+		 * System.out.println("从大到小的顺序是："+c+b+a); }else
+		 * System.out.println("从大到小的顺序是："+b+c+a); } }
+		 */
+		int i1 = 0;
+		int i2 = 0;
+		int i3 = 0;
+		if (a >= b && a >= c) {
+			i1 = a;
+			if (b >= c) {
+				i2 = b;
+				i3 = c;
+			} else {
+				i2 = c;
+				i3 = b;
+			}
+		} else
+
+		if (b >= a && b >= c) {
+			i1 = b;
+			if (a >= c) {
+				i2 = a;
+				i3 = c;
+			} else {
+				i2 = c;
+				i3 = a;
+			}
+		} else
+
+		if (c >= b && c >= c) {
+			i1 = c;
+			if (b >= a) {
+				i2 = b;
+				i3 = a;
+			} else {
+				i2 = a;
+				i3 = b;
+			}
+		}
+		System.out.println("从大到小的顺序是：" + i1 + "  " + i2 + "  " + i3);
+	}
+}
