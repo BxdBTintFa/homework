@@ -1,0 +1,70 @@
+create table user(
+name varchar(10),
+age int,
+height float,
+weight float,
+password varchar(8),
+lname varchar(10)
+)
+default charset utf8;
+
+insert into user(name,age,height,weight,password,lname) values('Peter',23,179,78,'peter23','lPeter');
+insert into user(name,age,height,weight,password,lname) values('Andrew',25,174,70,'andrew25','lAndrew');
+insert into user(name,age,height,weight,password,lname) values('Paul',17,166,68,'paul17','lPaul');
+insert into user(name,age,height,weight,password,lname) values('John',24,177,75,'john24','lJohn');
+insert into user(name,age,height,weight,password,lname) values('Joda',29,175,29,'joda29','lJoda');
+select * from user;
+
+
+
+
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class User {
+    String name;
+	int age;
+	float height;
+	float weight;
+	String password;
+	String lname;
+
+	public void selecting(User user,int i) throws SQLException, ClassNotFoundException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/user", "root", "root");
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery("select * from user limit i,1");
+		while (rs.next()) {
+			user.name = rs.getString("name");
+			user.age = rs.getInt("age");
+			user.height = rs.getFloat("height");
+			user.weight = rs.getFloat("weight");
+			user.password = rs.getString("password");
+			user.lname = rs.getString("lname");
+			System.out.println("user"+i+"   name:" + user.name+" age:"+user.age
+					+" height:"+user.height+" weight:"+" password:"+user.password+" lname:"+user.lname);
+		}
+		if (rs != null)
+			rs.close();
+		if (st != null)
+			st.close();
+		if (con != null)
+			con.close();
+	}
+
+	public static void main(String[] args) throws SQLException, ClassNotFoundException{
+		User user1 = new User();
+		user1.selecting(user1,1);
+		User user2 = new User();
+		user2.selecting(user2,2);
+		User user3 = new User();
+		user3.selecting(user3,3);
+		User user4 = new User();
+		user4.selecting(user4,4);
+		User user5 = new User();
+		user5.selecting(user5,5);
+	}
+}
