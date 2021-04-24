@@ -1,0 +1,51 @@
+public abstract class Students {
+    public abstract String[] insert(String[] students, String newName);
+
+	public abstract String[] delete(String[] students, int i);
+
+	public abstract String[] update(String[] students, int i, String newName);
+
+	public abstract String[] select(String[] students, int i);
+}
+
+
+public class Realize extends Students {
+
+	@Override
+	public String[] insert(String[] students, String newName) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < students.length; i++) {
+			if (students[i] == "") {
+				students[i] = newName;
+				break;
+			}
+		}
+	return students;
+	}
+
+	@Override
+	public String[] delete(String[] students, int i) {
+		// TODO Auto-generated method stub
+		students[i - 1] = null;
+		for (int j = i - 1; j < students.length - 1; j++) {
+			students[j] = students[j + 1];
+			if (j == students.length - 1)
+				students[j + 1] = "";
+		}
+		return students;
+	}
+
+	@Override
+	public String[] update(String[] students, int i, String newName) {
+		// TODO Auto-generated method stub
+		students[i - 1] = newName;
+		return students;
+	}
+
+	@Override
+	public String[] select(String[] students, int i) {
+		// TODO Auto-generated method stub
+		return students;
+	}
+
+}
