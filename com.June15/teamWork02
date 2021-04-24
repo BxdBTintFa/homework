@@ -1,0 +1,32 @@
+public class work2 {
+
+    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[] = { 9, 4, 2, 5, 7, 22, 11, 6, 7, 8, 77, 3 };
+		int index;
+		int sum1 = 0;
+		int sum2 = 0;
+		int temp;
+		for (int i = 0; i < a.length; i++) {
+			index = i;
+			for (int j = i + 1; j < a.length; j++) {
+				if (a[j] > a[index]) {
+					index = j;
+				}
+				sum2++;
+			}
+			sum1++;
+			temp = a[i];
+			a[i] = a[index];
+			a[index] = temp;
+		}
+		for (int i : a) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+		System.out.println("比较次数：" + sum2);
+		System.out.println("交换次数：" + sum1);
+
+	}
+
+}
