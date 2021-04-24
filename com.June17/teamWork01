@@ -1,0 +1,22 @@
+public class work1 {
+
+    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char en[] = { 'A', 'B', 'C' };
+
+		for (int i = 0; i < en.length; i++) {
+			System.out.println(en[i]);
+			for (int j = 0; j < en.length; j++) {
+				if (i != j) {
+					System.out.println(en[i] + "" + en[j]);
+					for (int k = 0; k < en.length; k++) {
+						if (k != i && k != j) {
+							System.out.println(en[i] + "" + en[j] + "" + en[k]);
+						}
+					}
+				}
+			}
+
+		}
+	}
+}
