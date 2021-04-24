@@ -1,0 +1,71 @@
+create table student(
+id int,
+name varchar(10),
+sex char(1),
+age tinyint,
+hight float
+)
+CHARSET=utf8 COLLATE=utf8_general_ci;
+
+insert into student(id,name,sex,age,hight)values(1,'Peter','M',26,167.4);
+insert into student(id,name,sex,age,hight)values(2,'Paul','M',29,178.4);
+insert into student(id,name,sex,age,hight)values(3,'Matthew','M',20,173.4);
+insert into student(id,name,sex,age,hight)values(4,'Mark','F',23,177.8);
+insert into student(id,name,sex,age,hight)values(5,'John','M',30,177.0);
+insert into student(id,name,sex,age,hight)values(6,'Johnah','F',38,181.4);
+insert into student(id,name,sex,age,hight)values(7,'Daiv','M',40,167.8);
+insert into student(id,name,sex,age,hight)values(8,'cuiwenteng','M',30,177.8);
+
+
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Properties;
+
+public class Test {
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
+		Properties inData = new Properties();
+		InputStream in = new BufferedInputStream(new FileInputStream("C:\\programs\\connection.properties"));
+		inData.load(in);
+		String url = inData.getProperty("URL");
+		String username = inData.getProperty("UserName");
+		String key = inData.getProperty("key");
+		System.out.println(url+username+key);
+
+		// 连接数据库
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection(url, username, key);
+		Statement student = connection.createStatement();
+		ResultSet rs = student.executeQuery("select * from student");
+		
+		//信息存到ArrayList里
+		ArrayList<Student> lstudent = new ArrayList<Student>();
+		while (rs.next()) {
+			Student s = new Student();
+			s.setId(rs.getInt("id"));
+			s.setName(rs.getString("name"));
+			s.setSex(rs.getString("age"));
+			s.setAge(rs.getInt("age"));
+			s.setHight(rs.getFloat("hight"));
+			lstudent.add(s);
+		}
+		
+		//查询名字为cuiwenteng的学生年龄
+		for (int i = 0; i < lstudent.size(); i++) {
+			if (lstudent.get(i).getName().equals("cuiwenteng")) {
+				System.out.println(lstudent.get(i).getName()+lstudent.get(i).getAge());
+			}
+		}
+
+	}
+
+}
