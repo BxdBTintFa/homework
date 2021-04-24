@@ -1,0 +1,66 @@
+public interface User {
+    //增加数组的方法
+	public abstract String insert(String[] users,String newName);
+
+	//删除数组第i项的方法
+	public abstract String delete(String[] users,int i);
+
+	//修改数组第i项的方法
+	public abstract String update(String[] users,int i,String newName);
+
+	//查询数组所有项
+	public abstract void select(String[] users,int i);
+
+}
+
+
+public class Initail implements User {
+
+	@Override
+	public String insert(String users[], String newName) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		for (int i = 0; i < users.length; i++) {
+			if (users[i] == "") {
+				users[i] = newName;
+				count = i;
+				break;
+			}
+		}
+		return "实现增加方法：数组增加一个：" + users[count];
+	}
+
+	public String delete(String users[], int i) {
+		// TODO Auto-generated method stub
+		users[i - 1] = null;
+		for (int j = i - 1; j < users.length - 1; j++) {
+			users[j] = users[j + 1];
+			if (j == users.length - 1)
+				users[j + 1] = "";
+		}
+
+		return "实现删除方法：删除了数组中的users[" + i + "]";
+	}
+
+	public String update(String users[], int i, String newName) {
+		// TODO Auto-generated method stub
+		users[i - 1] = newName;
+		return "实现修改方法：修改了数组中的一个数users[" + i + "]:" + users[i - 1];
+	}
+
+	public void select(String users[], int i) {
+		// TODO Auto-generated method stub
+		System.out.print("实现查询方法：" + users[i - 1]);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Initail test = new Initail();
+		String[] users = { "zhang", "li", "张", "李", "", "", "", "" };
+		System.out.println(test.delete(users, 1));
+		System.out.println(test.insert(users, "hidden"));
+		System.out.println(test.update(users, 2, "wang"));
+		test.select(users, 4);
+	}
+
+}
