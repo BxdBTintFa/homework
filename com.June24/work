@@ -1,15 +1,3 @@
-1.两张表A,B. A 表有9条记录，B 表有8表记录，select * from A lejt join B ,结果有多少记录？
-9
-
-2.两张表A,B. A 表有9条记录，B 表有8表记录，select * from A ， B ,结果有多少记录？
-72
-
-3.两张表A,B. A 表有9条记录，B 表有8表记录，select * from A right join B ,结果有多少记录？
-8
-
-
-/***************************************************/
-
 public class Students {
     private int ID;
 	private String Name;
