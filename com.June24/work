@@ -1,0 +1,129 @@
+1.两张表A,B. A 表有9条记录，B 表有8表记录，select * from A lejt join B ,结果有多少记录？
+9
+
+2.两张表A,B. A 表有9条记录，B 表有8表记录，select * from A ， B ,结果有多少记录？
+72
+
+3.两张表A,B. A 表有9条记录，B 表有8表记录，select * from A right join B ,结果有多少记录？
+8
+
+
+/***************************************************/
+
+public class Students {
+    private int ID;
+	private String Name;
+	private float Score = 0;
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public float getScore() {
+		return Score;
+	}
+
+	public void setScore(float score) {
+		Score = score;
+	}
+	public void noHanding(Students[] student){
+		System.out.println("没有提交作业的学生如下");
+		System.out.println("学号    " + "姓名         " + "成绩");
+		for (int i = 0; i < student.length; i++) {
+			if (student[i].getScore() == 0) {
+				System.out.println(student[i].getID() + "    " + student[i].getName() + "  " + student[i].getScore());
+			}
+	}
+	}
+	public void excellent(Students[] student){
+		int count=0;
+		for (int i = 0; i < student.length; i++) {
+			if (student[i].getScore() >= 85) {
+				count++;
+			}
+		}
+		System.out.println("班级的优秀率为：" + (float) 100*count / student.length+"%");
+	}
+}
+
+
+
+public class Initial {
+
+	Students s1 = new Students();
+		s1.setID(1);
+		s1.setName("Peter");
+		s1.setScore(69);
+
+		Students s2 = new Students();
+		s2.setID(2);
+		s2.setName("Andre");
+
+		Students s3 = new Students();
+		s3.setID(3);
+		s3.setName("Paul");
+
+		Students s4 = new Students();
+		s4.setID(4);
+		s4.setName("Philip");
+		s4.setScore(99);
+
+		Students s5 = new Students();
+		s5.setID(5);
+		s5.setName("Peter");
+		s5.setScore(78);
+
+		Students s6 = new Students();
+		s6.setID(6);
+		s6.setName("Jacob");
+		s6.setScore(94);
+
+		Students s7 = new Students();
+		s7.setID(7);
+		s7.setName("Matthew");
+
+		Students s8 = new Students();
+		s8.setID(8);
+		s8.setName("John");
+		s8.setScore(92);
+
+		Students s9 = new Students();
+		s9.setID(9);
+		s9.setName("Judas");
+		s9.setScore(97);
+
+		Students s10 = new Students();
+		s10.setID(10);
+		s10.setName("Matthias");
+		s10.setScore(99);
+
+		Students student[] = new Students[10];
+		student[0] = s1;
+		student[1] = s2;
+		student[2] = s3;
+		student[3] = s4;
+		student[4] = s5;
+		student[5] = s6;
+		student[6] = s7;
+		student[7] = s8;
+		student[8] = s9;
+		student[9] = s10;
+
+		s1.noHanding(student);
+		s1.excellent(student);
+
+	}
+
+}
