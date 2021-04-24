@@ -1,0 +1,54 @@
+public class Student {
+    String name;
+	int age;
+	char sex;
+
+	Student(String name, int age, char sex) {
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+	}
+
+	public boolean equals(Student s) {
+		return (this.name == s.name && this.age == s.age);
+	}
+
+	public void compartTo(Student s) {
+		if (this.age > s.age) {
+			System.out.println(this.name+",年龄为"+this.age);
+		} else
+			System.out.println(s.name+",年龄为"+s.age);
+	}
+
+	public String toString() {
+		return "姓名:" + name + "  " + "年龄:" + age + "  " + "性别:" + sex;
+	}
+}
+
+
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		Student s1 = new Student("张三", 12, '男');
+		Student s2 = new Student("李四", 34, '男');
+		Student s3 = new Student("王五", 20, '女');
+		
+		//toString方法测试
+		System.out.print("第一个学生的情况：");
+		System.out.println(s1.toString());
+		System.out.print("第二个学生的情况：");
+		System.out.println(s2.toString());
+		System.out.print("第三个学生的情况：");
+		System.out.println(s3.toString());
+		
+		//equals方法测试
+		System.out.print(s1.name + "与" + s2.name + "是否equal：");
+		System.out.println(s1.equals(s2));
+		
+		//compareTo方法测试
+		System.out.print(s1.name + "与" + s2.name + "的年龄哪一个比较大：");
+		s1.compartTo(s2);
+	}
+
+}
