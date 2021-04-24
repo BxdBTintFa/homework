@@ -1,0 +1,15 @@
+CREATE TABLE students (
+    name varchar(50) NULL,
+	id INT NOT null,
+	grade INT null,
+	height FLOAT null,
+	weight FLOAT null)
+	DEFAULT CHARSET=utf8;
+insert into students(name,id,grade,height,weight)values('小李',023,89,175,129);
+insert into students(name,id,grade,height,weight)values('小明',013,79,173,129);
+insert into students(name,id,grade,height,weight)values('小王',021,95,175,139.5);
+insert into students(name,id,grade,height,weight)values('小红',023,77,169,124);
+insert into students(name,id,grade,height,weight)values('小兰',019,86,177,120);
+insert into students(name,id,grade,height,weight)values('小黑',027,83,179,110);
+select name,id,grade,height,weight from students;
+update students set name='学霸' where grade=(select max(grade)from students); 
