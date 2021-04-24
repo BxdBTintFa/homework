@@ -26,7 +26,6 @@ public class work2 {
 		System.out.println();
 		System.out.println("比较次数：" + sum2);
 		System.out.println("交换次数：" + sum1);
-
 	}
 
 }
