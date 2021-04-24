@@ -1,0 +1,35 @@
+public class work0 {
+
+    //获取数组oldarr不等于3的个数
+	public static int len(int oldarr[]) {
+		int sum = 0;
+		for (int i = 0; i < oldarr.length; i++) {
+			if (oldarr[i] != 3) {
+				sum++;
+			}
+		}
+		return sum;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int oldarr[] = { 1, 4, 6, 7, 7, 0, 3, 4, 5, 3, 8, 5, 9, 3, 55 };
+		int a[] = new int[len(oldarr)];
+
+		//给新的数组a赋值
+		int j = 0;
+		for (int i = 0; i < oldarr.length; i++) {
+			if (oldarr[i] != 3) {
+				a[j] = oldarr[i];
+				j++;
+			}
+		}
+		System.out.println("新数组a如下：");
+		for (int i : a) {
+			System.out.print(i + " ");
+
+		}
+	}
+
+}
+
