@@ -1,0 +1,15 @@
+CREATE TABLE tianyuan.users (
+    username varchar(10) NULL,
+	id INT NOT NULL
+)
+use tianyuan;
+insert into users(username,id)values('one',1);
+insert into users(username,id)values('two',3);
+insert into users(username,id)values('three',4);
+insert into users(username,id)values('four',6);
+insert into users(username,id)values('five',2);
+insert into users(username,id)values('six',5);
+insert into users(username,id)values('seven',7);
+insert into users(username,id)values('eight',8);
+select username,id from users;
+delete from users where username='qian';
