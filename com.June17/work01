@@ -1,0 +1,31 @@
+public class BankUsers {
+    String userName;
+	int id;
+	private float remain;
+	
+	public void saving(){
+		System.out.println("存款方法被调用了");
+	}
+	
+	public void draw(){
+		System.out.println("取款方法被调用了");
+	}
+
+	public float getRemain() {
+		return remain;
+	}
+}
+
+
+public class Initail {
+
+	public static void main(String[] args) {
+		BankUsers user1=new BankUsers();
+		System.out.println("账户id为："+user1.id);
+		System.out.println(""+user1.userName);
+		System.out.println(""+user1.getRemain());
+		user1.saving();
+		user1.draw();
+	}
+
+}
