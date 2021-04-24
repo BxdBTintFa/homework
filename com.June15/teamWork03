@@ -1,0 +1,25 @@
+public class work3 {
+
+    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a[] = { 11, 33, 90, 9, 4, 2, 5, 7, 22, 11, 6, 7, 8, 77, 3 };
+		int t;
+		int sum1 = 0;
+		int sum2 = 0;
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i; (j > 0 && a[j] > a[j - 1]); j--) {
+				t = a[j];
+				a[j] = a[j - 1];
+				a[j - 1] = t;
+				sum2++;
+			}
+			sum1++;
+		}
+		for (int i : a) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+		System.out.println("比较次数" + sum1);
+		System.out.println("交换次数" + sum2);
+	}
+}
