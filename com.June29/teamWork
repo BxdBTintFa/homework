@@ -1,0 +1,84 @@
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
+import java.util.Vector;
+
+public class TestStudent0629 {
+
+    public static void main(String[] args) throws IOException {
+
+		
+		/******************************第一题****************************************/
+		Student0629 student1 = new Student0629();
+		student1.setId(1);
+		student1.setName("小明");
+		student1.setAge(22);
+		student1.setSex('F');
+		student1.setHight(176.7f);
+
+		Student0629 student2 = new Student0629();
+		student2.setId(3);
+		student2.setName("cuiwenteng");
+		student2.setAge(32);
+		student2.setSex('M');
+		student2.setHight(156.7f);
+
+		List<Student0629> lstudent = new ArrayList<Student0629>();
+		lstudent.add(student1);
+		lstudent.add(student2);
+
+		List lstudent2 = new LinkedList<Student0629>();
+		lstudent2.add(student1);
+		lstudent2.add(student2);
+
+		List lstudent3 = new Vector<Student0629>();
+		lstudent3.add(student1);
+		lstudent3.add(student2);
+
+		for (int i = 0; i < lstudent.size(); i++) {
+			if (((Student0629) lstudent.get(i)).getName().equals("cuiwenteng")) {
+				int id = ((Student0629) lstudent.get(i)).getId();
+				String name = ((Student0629) lstudent.get(i)).getName();
+				char sex = ((Student0629) lstudent.get(i)).getSex();
+				int age = ((Student0629) lstudent.get(i)).getAge();
+				float hight = ((Student0629) lstudent.get(i)).getHight();
+				System.out.println("name:" + name + "age:" + age);
+			}
+		}
+
+		Iterator<Student0629> it = lstudent3.iterator();
+		while (it.hasNext()) {
+			if (it.next().getName().equals("cuiwenteng"))
+				System.out.println("name:" + it.next().getName() + " age:" + it.next().getAge());
+		}
+
+		System.out.println(lstudent.size());
+		System.out.println(lstudent2.size());
+		System.out.println(lstudent3.size());
+		
+		
+		/***********************************第二题************************************************/
+//		HashMap hstudent = new HashMap( int m,student2);
+		
+		
+		
+		/**************************************第三题********************************************/
+		Properties test=new Properties();
+		InputStream in=new BufferedInputStream(new FileInputStream("C:\\test.properties"));
+		test.load(in);
+		String name=test.getProperty("name");
+		String age=test.getProperty("age");
+		String hight=test.getProperty("hight");
+		System.out.println(name+" "+age+" "+hight);
+		
+	}
+
+}
