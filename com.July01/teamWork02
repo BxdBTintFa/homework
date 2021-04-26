@@ -1,0 +1,144 @@
+#student表的建立
+create table student(
+name varchar(10),
+id int,
+sex char(1),
+age int,
+height float(5,2)
+)
+default charset utf8;
+
+insert into student(name,id,sex,age,height)values
+
+('Matthew',1,'F',70,145.4);
+insert into student(name,id,sex,age,height)values
+
+('Matt',2,'M',60,156.45);
+insert into student(name,id,sex,age,height)values
+
+('Mark',3,'F',50,176.5);
+insert into student(name,id,sex,age,height)values
+
+('Thew',4,'M',30,169.5);
+insert into student(name,id,sex,age,height)values
+
+('Hidden',5,'F',90,165.5);
+insert into student(name,id,sex,age,height)values
+
+('Paul',6,'M',50,149.5);
+insert into student(name,id,sex,age,height)values
+
+('cuiwenteng',7,'M',30,179.5);
+commit;
+
+
+/*********************student类的建立*********************/
+public class Student {
+    private int id;
+	private String name;
+	private String sex;
+	private int age;
+	private float height;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public float getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+	
+	public void setStudent(int id,String name,String sex,int 
+
+age,float height){
+		this.setId(id);
+		this.setName(name);
+		this.setSex(sex);
+		this.setAge(age);
+		this.setHeight(height);
+	}
+}
+
+
+/***********8数据放入集合并且查询名字为cuiwentent的年龄***********/
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+
+public class Initial {
+
+	public static void main(String[] args) throws IOException, 
+
+ClassNotFoundException, SQLException {
+		Properties inData = new Properties();
+		InputStream in = new BufferedInputStream(new 
+
+FileInputStream("D:\\xunl\\connection.properties"));
+		inData.load(in);
+		// 连接数据库
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection
+
+(inData.getProperty("URL") ,inData.getProperty("name") 
+
+,inData.getProperty("key"));
+		Statement st = connection.createStatement();
+		
+		ResultSet rs = st.executeQuery("select * from 
+
+student");
+
+		Map<String, Student> mStudent = new HashMap<String, 
+
+Student>();
+		while (rs.next()) {
+			Student student = new Student();
+			student.setStudent(rs.getInt("id"), 
+
+rs.getString("name"), rs.getString("sex"), rs.getInt("age"),
+					rs.getFloat("height"));
+			mStudent.put(student.getName(), student);
+		}
+		for(String key:mStudent.keySet()){
+			if(key.equals("cuiwenteng")){
+				System.out.println("cuiwenteng的年龄是
+
+："+mStudent.get(key).getAge());
+			}
+		}
+
+	}
+
+}
