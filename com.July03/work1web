@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>hao123.com</title>
+</head>
+<body>
+<div id="container" style="width:500px">
+
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;">
+<p> <a href="https://www.baidu.com/s?word=%E4%B8%8A%E6%B5%B7%E5%A4%A9%E6%B0%94&tn=50000030_hao_pg&ie=utf-8">上海天气</a></p>
+百度一下<input type="text">
+</h1>
+</div>
+<div>
+<p><tr>
+<th><a href="https://www.hao123.com/">首页</a></th>
+<th><a href="https://www.hao123.com/?1467529758">电视剧</a></th>
+<th>最新电影</th>
+<th>新闻头条</th>
+</tr>
+</p>
+</div>
+
+<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+<b>menu</b><br>
+menu2<br>
+menu3<br></div>
+
+<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
+
+</div>
+
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+热播</div>
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+游戏</div>
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+笑话</div>
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright@baidu</div>
+
+</div>
+</body>
+</html>
