@@ -1,0 +1,88 @@
+public class Student {
+    private String name;
+	private String classNumber;
+	private float score;
+	private int age;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getClassNumber() {
+		return classNumber;
+	}
+	public void setClassNumber(String classNumber) {
+		this.classNumber = classNumber;
+	}
+	public float getScore() {
+		return score;
+	}
+	public void setScore(float score) {
+		this.score = score;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", classNumber=" + classNumber + ", score=" + score + "]";
+	}
+	
+}
+
+
+/*******************************************/
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Student_JDBC {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+
+		// 加载驱动，指定数据库类型
+		Class.forName("com.mysql.jdbc.Driver");
+
+		// 获取连接
+		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/zizai", "root", "root");
+		// jdbc:mysql://localhost:3306/csdn
+
+		// 创建一个statement
+		Statement st = con.createStatement();
+
+		// 创建一个ResultSet，执行sql
+		ResultSet rs = st.executeQuery("select * from student0704");
+		
+		while (rs.next()) {
+			int age = rs.getInt("age");
+			if (age == 18) {
+				System.out.println("age为" + age + "的学生：");
+				Student student = new Student();
+				student.setClassNumber(rs.getString("class"));
+				student.setName(rs.getString("name"));
+				student.setScore(rs.getFloat("score"));
+				System.out.println(student.toString());
+			}
+		}
+
+		// 关闭jdbc 对象
+		if (rs != null)
+			rs.close();
+		if (st != null)
+			st.close();
+		if (con != null)
+			con.close();
+
+	}
+
+}
